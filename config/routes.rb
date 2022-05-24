@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :requests
   resources :comments
-  resources :users
   resources :book_tags
   resources :tags
   resources :categories
