@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @book_tag %>
+
+<div>
+  <%= link_to "Edit this book tag", edit_book_tag_path(@book_tag) %> |
+  <%= link_to "Back to book tags", book_tags_path %>
+
+  <%= button_to "Destroy this book tag", @book_tag, method: :delete %>
+</div>

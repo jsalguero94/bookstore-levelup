@@ -1,0 +1,17 @@
+<%= form_with(model: book_tag) do |form| %>
+  <% if book_tag.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(book_tag.errors.count, "error") %> prohibited this book_tag from being saved:</h2>
+
+      <ul>
+        <% book_tag.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
