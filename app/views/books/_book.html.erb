@@ -5,6 +5,11 @@
   </p>
 
   <p>
+    <strong>Author:</strong>
+    <%= book.author.name %>
+  </p>
+  
+  <p>
     <strong>Name:</strong>
     <%= book.name %>
   </p>
@@ -15,8 +20,13 @@
   </p>
 
   <p>
+    <strong>Category:</strong>
+    <%= book.category.name %>
+  </p>
+
+  <p>
     <strong>Price:</strong>
-    <%= book.price %>
+    <%= number_to_currency(book.price) %>
   </p>
 
   <p>

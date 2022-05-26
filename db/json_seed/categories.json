@@ -1,0 +1,32 @@
+[
+	{
+		"name": "Action"
+	},
+	{
+		"name": "Classic"
+	},
+	{
+		"name": "Novel"
+	},
+	{
+		"name": "Mystery"
+	},
+	{
+		"name": "Fantasy"
+	},
+	{
+		"name": "Historical"
+	},
+	{
+		"name": "Horror"
+	},
+	{
+		"name": "Fiction"
+	},
+	{
+		"name": "Romance"
+	},
+	{
+		"name": "Shorts"
+	}
+]
