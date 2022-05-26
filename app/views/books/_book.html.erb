@@ -16,12 +16,17 @@
 
   <p>
     <strong>Description:</strong>
-    <%= book.description %>
+    <%= 
+        description = book.description
+        is_url = description =~ URI::regexp
+        is_url ? (link_to description, description, target: :blank) : description
+     %>
   </p>
 
   <p>
     <strong>Category:</strong>
     <%= book.category.name %>
+
   </p>
 
   <p>

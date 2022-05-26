@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :requests
-  resources :comments
-  resources :book_tags
   resources :tags
   resources :categories
   resources :books
