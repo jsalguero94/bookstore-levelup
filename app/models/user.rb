@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :requests, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :books, through: :comments
+
+  validates :first_name, :last_name, :date_of_birth, presence: true
 end

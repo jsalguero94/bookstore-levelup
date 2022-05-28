@@ -89,17 +89,7 @@
     "title": "Le P\u00e8re Goriot",
     "year": 1835
   },
-  {
-    "author": "Samuel Beckett",
-    "country": "Republic of Ireland",
-    "imageLink": "images/molloy-malone-dies-the-unnamable.jpg",
-    "language": "French, English",
-    "link": "https://en.wikipedia.org/wiki/Molloy_(novel)\n",
-    "pages": 256,
-    "title": "Molloy, Malone Dies, The Unnamable, the trilogy",
-    "year": 1952
-  },
-  {
+    {
     "author": "Giovanni Boccaccio",
     "country": "Italy",
     "imageLink": "images/the-decameron.jpg",
@@ -148,16 +138,6 @@
     "pages": 320,
     "title": "Poems",
     "year": 1952
-  },
-  {
-    "author": "Louis-Ferdinand C\u00e9line",
-    "country": "France",
-    "imageLink": "images/voyage-au-bout-de-la-nuit.jpg",
-    "language": "French",
-    "link": "https://en.wikipedia.org/wiki/Journey_to_the_End_of_the_Night\n",
-    "pages": 505,
-    "title": "Journey to the End of the Night",
-    "year": 1932
   },
   {
     "author": "Miguel de Cervantes",
@@ -398,16 +378,6 @@
     "pages": 600,
     "title": "The Tin Drum",
     "year": 1959
-  },
-  {
-    "author": "Jo\u00e3o Guimar\u00e3es Rosa",
-    "country": "Brazil",
-    "imageLink": "images/the-devil-to-pay-in-the-backlands.jpg",
-    "language": "Portuguese",
-    "link": "https://en.wikipedia.org/wiki/The_Devil_to_Pay_in_the_Backlands\n",
-    "pages": 494,
-    "title": "The Devil to Pay in the Backlands",
-    "year": 1956
   },
   {
     "author": "Knut Hamsun",
@@ -790,16 +760,6 @@
     "year": 1257
   },
   {
-    "author": "Tayeb Salih",
-    "country": "Sudan",
-    "imageLink": "images/season-of-migration-to-the-north.jpg",
-    "language": "Arabic",
-    "link": "https://en.wikipedia.org/wiki/Season_of_Migration_to_the_North\n",
-    "pages": 139,
-    "title": "Season of Migration to the North",
-    "year": 1966
-  },
-  {
     "author": "Jos\u00e9 Saramago",
     "country": "Portugal",
     "imageLink": "images/blindness.jpg",
@@ -860,16 +820,6 @@
     "year": 1830
   },
   {
-    "author": "Laurence Sterne",
-    "country": "England",
-    "imageLink": "images/the-life-and-opinions-of-tristram-shandy.jpg",
-    "language": "English",
-    "link": "https://en.wikipedia.org/wiki/The_Life_and_Opinions_of_Tristram_Shandy,_Gentleman\n",
-    "pages": 640,
-    "title": "The Life And Opinions of Tristram Shandy",
-    "year": 1760
-  },
-  {
     "author": "Italo Svevo",
     "country": "Italy",
     "imageLink": "images/confessions-of-zeno.jpg",
@@ -918,16 +868,6 @@
     "pages": 92,
     "title": "The Death of Ivan Ilyich",
     "year": 1886
-  },
-  {
-    "author": "Mark Twain",
-    "country": "United States",
-    "imageLink": "images/the-adventures-of-huckleberry-finn.jpg",
-    "language": "English",
-    "link": "https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn\n",
-    "pages": 224,
-    "title": "The Adventures of Huckleberry Finn",
-    "year": 1884
   },
   {
     "author": "Valmiki",

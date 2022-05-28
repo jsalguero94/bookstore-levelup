@@ -1,6 +1,6 @@
-<p style="color: green"><%= notice %></p>
 
 <%= render @book %>
+
 
 <div>
   <%= link_to "Edit this book", edit_book_path(@book) %> |
@@ -8,3 +8,19 @@
 
   <%= button_to "Destroy this book", @book, method: :delete %>
 </div>
+<hr>
+<div id="new_comment">
+
+<%= render "books/comments/form", comment: @comment, book_id: @book.id %>
+<h2>Comments</h2>
+<br>
+</div>
+  <div id="comments">
+
+  <% @comments.each do |comment| %>
+    <%= render "books/comments/comment", comment:comment%>
+    <hr>
+  <% end %>
+  </div>
+
+

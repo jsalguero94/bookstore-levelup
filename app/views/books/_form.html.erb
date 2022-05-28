@@ -12,6 +12,16 @@
   <% end %>
 
   <div>
+    <%= form.label :category_id, style: "display: block" %>
+    <%= form.collection_select(:category_id, categories, :id, :name) %>
+  </div>
+
+  <div>
+    <%= form.label :author_id, style: "display: block" %>
+    <%= form.collection_select(:author_id, authors, :id, :name) %>
+  </div>
+
+  <div>
     <%= form.label :code, style: "display: block" %>
     <%= form.text_field :code %>
   </div>

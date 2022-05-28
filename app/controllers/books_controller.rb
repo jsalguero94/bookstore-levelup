@@ -1,13 +1,15 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ]
+  before_action :get_authors_categories, only: %i[ new edit create update] 
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+    @books = Book.only_active
   end
 
   # GET /books/1 or /books/1.json
   def show
+    @comment = Comment.new
   end
 
   # GET /books/new
@@ -61,10 +63,28 @@ class BooksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_book
       @book = Book.find(params[:id])
+      get_comments
+    end
+
+    def get_comments
+      @comments = Comment.all.where("book_id=#{@book.id()} and approved=true")
     end
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:code, :name, :description, :price, :number_of_pages, :date_published, :active)
+      params.require(:book).permit(:code, :name, :description, :price, :number_of_pages, :date_published, :active, :author_id, :category_id)
+    end
+    
+    def get_authors_categories
+      get_authors
+      get_categories
+    end
+
+    def get_authors
+      @authors = Author.all
+    end
+
+    def get_categories
+      @categories = Category.all
     end
 end

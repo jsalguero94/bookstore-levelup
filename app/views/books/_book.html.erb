@@ -5,9 +5,16 @@
   </p>
 
   <p>
+    <strong>Category:</strong>
+    <%= book.category.name %>
+
+  </p>
+
+  <p>
     <strong>Author:</strong>
     <%= book.author.name %>
   </p>
+
   
   <p>
     <strong>Name:</strong>
@@ -21,12 +28,6 @@
         is_url = description =~ URI::regexp
         is_url ? (link_to description, description, target: :blank) : description
      %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= book.category.name %>
-
   </p>
 
   <p>

@@ -1,0 +1,13 @@
+<div id="<%= dom_id comment %>">
+  <p>
+    <strong>Message:</strong>
+    <%= comment.message %>
+  </p>
+
+    <strong>User:</strong>
+    <%= (comment.user.first_name() + " " + comment.user.last_name()) %>
+    <strong>Date:</strong>
+    <%= comment.created_at %> 
+
+
+</div>
