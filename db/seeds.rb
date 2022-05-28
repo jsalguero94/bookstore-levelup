@@ -40,14 +40,15 @@ books.each do |book|
 
 end
 5.times.each do |i|
-  User.create!(email: "jhondoe#{i}@example.com", first_name: "Jhon#{i}", last_name: "Doe#{i}", date_of_birth: "2000-01-0#{i+1}", password:"123456", password_confirmation:"123456")
+  user = User.create!(email: "jhondoe#{i}@example.com", first_name: "Jhon#{i}", last_name: "Doe#{i}", date_of_birth: "2000-01-0#{i+1}", password:"123456", password_confirmation:"123456")
+  Request.create!(name_of_book: "Book#{i}", user_id: user.id)
 end
-5.times.each do |i|
-  Request.create!(name_of_book: "Book#{i}", user_id: i+1)
+Book.all.each do |book|
+  Comment.create!(message:"I love this book", approved:true, user_id:1, book_id: book.id)
 end
 finish_time = Time.new
 duration = finish_time - start_time
 p "Seed finished: "+ finish_time.strftime("%Y-%m-%d %H:%M:%S")
 p "Duration: "+ sprintf('%.2f',duration) + " Seconds"
 p "Records created:"
-p [{Books:Book.count,Authors:Author.count,Categories:Category.count,Tags:Tag.count,BookTags:BookTag.count,Users:User.count,Request:Request.count}]
+p [{Books:Book.count,Authors:Author.count,Categories:Category.count,Tags:Tag.count,BookTags:BookTag.count,Users:User.count,Request:Request.count,Comments:Comment.count}]
