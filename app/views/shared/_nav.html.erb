@@ -22,6 +22,7 @@
 <% 
   end
   %>
+<h2>
 Welcome!    <%=  user_signed_in? ? (current_user.first_name() +' '+ current_user.last_name()) : ''%>
 |   <%= link_to "Home", root_path %>
 |   <%= link_to "Books", books_path %>
@@ -29,6 +30,14 @@ Welcome!    <%=  user_signed_in? ? (current_user.first_name() +' '+ current_user
 |   <%= link_to "Categories", categories_path %>
 |   <%= link_to "Tags", tags_path %>
 |   <%= link_to "Request a book", requests_path %>
-
+</h2>
+<h3>
+<p>
+Total actives books:   <%= @active_books %>
+|Total inactive books:   <%= @inactive_books  %>
+|Total authors with at least one book published:   <%= @authors_with_books  %>
+|Total authors with no books:   <%= @authors_with_no_books  %>
+</p>
+</h3>
 </div>
 <hr>
