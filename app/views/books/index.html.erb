@@ -1,7 +1,11 @@
 
+
 <h1>Books</h1>
 
 <%= link_to "New book", new_book_path %>
+<p>
+<%= paginate @books %>
+</p>
 <br>
 <br>
 <div id="books">
@@ -12,5 +16,8 @@
     </p>
     <hr>
   <% end %>
+<p>
+<%= paginate @books %>
+</p>
 </div>
 

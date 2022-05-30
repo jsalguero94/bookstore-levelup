@@ -1,6 +1,8 @@
 class Book < ApplicationRecord
   after_initialize :set_defaults
 
+  paginates_per 20
+
   belongs_to :category
   belongs_to :author
   has_many :book_tags, dependent: :destroy
