@@ -1,9 +1,28 @@
 
+<h2>Tag</h2>
+Number of books for this tag: 
+<%= @book_count %> 
 <%= render @tag %>
-
 <div>
   <%= link_to "Edit this tag", edit_tag_path(@tag) %> |
   <%= link_to "Back to tags", tags_path %>
 
   <%= button_to "Destroy this tag", @tag, method: :delete %>
+</div>
+<div>
+
+  <h2>Books</h2>
+<div id="books">
+  <% i ||=0 %>
+  <% @tag_pagination.each do |book| %>
+  #<%= i += 1 %>
+    <%= render book %>
+    <p>
+      <%= link_to "Show this book", book %>
+    </p>
+    <hr>
+  <% end %>
+
+</div>
+  <%= paginate @tag_pagination %>
 </div>

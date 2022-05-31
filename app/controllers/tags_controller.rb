@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: %i[ show edit update destroy ]
+  before_action :books, only: :show
 
   # GET /tags or /tags.json
   def index
@@ -66,5 +67,11 @@ class TagsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def tag_params
       params.require(:tag).permit(:name)
+    end
+
+    def books
+      @tag_books = @tag.books
+      @tag_pagination = @tag_books.order(:name).page(params[:page]).per(20)
+      @book_count = @tag_books.count
     end
 end

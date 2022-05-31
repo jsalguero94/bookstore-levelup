@@ -67,7 +67,7 @@ class BooksController < ApplicationController
     end
 
     def get_comments
-      @comments = Comment.all.where("book_id=#{@book.id()} and approved=true")
+      @comments = @book.comments.where("approved=true")
     end
 
     # Only allow a list of trusted parameters through.
@@ -78,6 +78,7 @@ class BooksController < ApplicationController
     def get_authors_categories
       get_authors
       get_categories
+      get_tags
     end
 
     def get_authors

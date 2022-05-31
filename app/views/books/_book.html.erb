@@ -49,6 +49,15 @@
     <strong>Active:</strong>
     <%= book.active %>
   </p>
+  <div id="tags">
+    <p>
+    <strong>Tags:</strong> 
+  <% book.tags.each do |tag| %>
+   <%= link_to tag.name, tag %>
+  <% end %>
+    </p>
+  </div>
+
   <% end %>
 
 </div>

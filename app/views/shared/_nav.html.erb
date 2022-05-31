@@ -33,7 +33,8 @@ Welcome!    <%=  user_signed_in? ? (current_user.first_name() +' '+ current_user
 </h2>
 <h3>
 <p>
-Total actives books:   <%= @active_books %>
+Total books: <%= @active_books + @inactive_books %>
+|Total actives books:   <%= @active_books %>
 |Total inactive books:   <%= @inactive_books  %>
 |Total authors with at least one book published:   <%= @authors_with_books  %>
 |Total authors with no books:   <%= @authors_with_no_books  %>
