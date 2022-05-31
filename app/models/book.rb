@@ -1,4 +1,5 @@
 class Book < ApplicationRecord
+  include Filterable
   after_initialize :set_defaults
 
   paginates_per 20
@@ -11,6 +12,8 @@ class Book < ApplicationRecord
   has_many :users, through: :comments
 
   scope :only_active, -> { where("active = true") }
+  scope :filter_by_author, -> (author_id) {where author_id: author_id} 
+  scope :filter_by_tag, -> (tag_id) { joins(:book_tags).merge(BookTag.all.where("#{tag_id}=tag_id"))}
 
   validates :code, :name, :price, :number_of_pages, :date_published, :category_id, :author_id, presence: true
   validates :name, length: { maximum: 30 }

@@ -1,10 +1,12 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ]
   before_action :get_authors_categories, only: %i[ new edit create update] 
+  before_action :get_filters, only: :index
 
   # GET /books or /books.json
   def index
-    @books = Book.only_active.order(:name).page params[:page]
+    #@books = Book.only_active.order(:name).page params[:page]
+    @books = Book.filter(params.slice(:tag, :author)).order(:name).page params[:page]
   end
 
   # GET /books/1 or /books/1.json
@@ -78,7 +80,6 @@ class BooksController < ApplicationController
     def get_authors_categories
       get_authors
       get_categories
-      get_tags
     end
 
     def get_authors
@@ -87,5 +88,14 @@ class BooksController < ApplicationController
 
     def get_categories
       @categories = Category.all
+    end
+    
+    def get_filters
+      get_authors
+      get_tags
+    end
+
+    def get_tags
+      @tags = Tag.all
     end
 end

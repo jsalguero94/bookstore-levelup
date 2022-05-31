@@ -5,11 +5,11 @@
   %>
 <%= 
       button_to 'Edit Profile', edit_user_registration_path, method: :get,
-       form: {data: {turbo:true}}, style: "margin-top: -9px; left: 530px; position:absolute "
+       form: {data: {turbo:true}}, style: "margin-top: -9px; position: absolute "
   %>
 <%= 
       button_to 'Sign Out', destroy_user_session_path, method: :delete,
-        form: {data: {turbo:true, turbo_confirm: 'Are you sure?'}}, style: "margin-top: -9px; left: 630px; position:absolute "
+        form: {data: {turbo:true, turbo_confirm: 'Are you sure?'}}, style: "margin-top: -9px; left: 156px;position:absolute "
   %>
 
 <% 
@@ -17,7 +17,7 @@
   %>
 <%= 
       button_to 'Sign In', user_session_path, method: :get,
-        form: {data: {turbo:true}}, style: "margin-top: -9px; left: 530px; position:absolute "
+        form: {data: {turbo:true}}, style: "margin-top: -9px; left: 530px"
   %>
 <% 
   end

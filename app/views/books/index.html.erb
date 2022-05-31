@@ -1,8 +1,35 @@
 
 
 <h1>Books</h1>
+Filter by:
+<table style="width:30%">
+  <tr>
+    <%= form_with url:"/books", method: :get, turbo:true do |form| %>
+      <th>Tag:  <%= form.collection_select(:tag, @tags, :id, :name) %></th>
+  <div>
+    <th>
+    <%= form.submit "Filter" %>
+    </th>
+  </div>
+<% end %>
 
+  </tr>
+  <tr>
+    <%= form_with url:"/books", method: :get, turbo:true do |form| %>
+      <th>Author: <%= form.collection_select(:author, @authors, :id, :name) %></th>
+  <div>
+    <br>
+    <th>
+    <%= form.submit "Filter" %>
+    </th>
+  </div>
+<% end %>
+
+  </tr>
+</table>
+<br>
 <%= link_to "New book", new_book_path %>
+
 <p>
 <%= paginate @books %>
 </p>
@@ -18,6 +45,9 @@
     </p>
     <hr>
   <% end %>
+  <% if !@books[0] %>
+    <p> Books not found, or not active</p>
+    <% end %>   
 <p>
 <%= paginate @books %>
 </p>
