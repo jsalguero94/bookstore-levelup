@@ -2,9 +2,15 @@
 <h1>Categories</h1>
 <%= link_to "New category", new_category_path %>
 <br>
+<p>
+<%= paginate @categories %>
+</p>
+<br>
 <br>
 <div id="categories">
+  <% i = 0 %>
   <% @categories.each do |category| %>
+    #<%= i+=1 %>
     <%= render category %>
     <p>
       <%= link_to "Show this category", category %>
@@ -12,4 +18,4 @@
     <hr>
   <% end %>
 </div>
-
+<%= paginate @categories %>

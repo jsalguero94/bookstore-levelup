@@ -9,7 +9,9 @@
 <br>
 <br>
 <div id="books">
+  <% i ||=0 %>
   <% @books.each do |book| %>
+  #<%= i += 1 %>
     <%= render book %>
     <p>
       <%= link_to "Show this book", book %>

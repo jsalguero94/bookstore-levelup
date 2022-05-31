@@ -1,5 +1,21 @@
 <div id="<%= dom_id book %>">
   <p>
+    <strong>Author:</strong>
+    <%= book.author.name %>
+  </p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= book.name %>
+  </p>
+
+   <p>
+    <strong>Price:</strong>
+    <%= number_to_currency(book.price) %>
+  </p>
+
+  <% if defined? show %>
+  <p>
     <strong>Code:</strong>
     <%= book.code %>
   </p>
@@ -11,17 +27,6 @@
   </p>
 
   <p>
-    <strong>Author:</strong>
-    <%= book.author.name %>
-  </p>
-
-  
-  <p>
-    <strong>Name:</strong>
-    <%= book.name %>
-  </p>
-
-  <p>
     <strong>Description:</strong>
     <%= 
         description = book.description
@@ -30,12 +35,7 @@
      %>
   </p>
 
-  <p>
-    <strong>Price:</strong>
-    <%= number_to_currency(book.price) %>
-  </p>
-
-  <p>
+   <p>
     <strong>Number of pages:</strong>
     <%= book.number_of_pages %>
   </p>
@@ -49,5 +49,6 @@
     <strong>Active:</strong>
     <%= book.active %>
   </p>
+  <% end %>
 
 </div>

@@ -2,9 +2,15 @@
 <h1>Tags</h1>
 <%= link_to "New tag", new_tag_path %>
 <br>
+<p>
+<%= paginate @tags %>
+</p>
+<br>
 <br>
 <div id="tags">
+  <% i = 0 %>
   <% @tags.each do |tag| %>
+    #<%= i += 1 %>
     <%= render tag %>
     <p>
       <%= link_to "Show this tag", tag %>
@@ -12,4 +18,5 @@
     <hr>
   <% end %>
 </div>
+<%= paginate @tags %>
 
