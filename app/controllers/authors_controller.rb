@@ -1,5 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: %i[ show edit update destroy ]
+  before_action :books, only: :show
 
   # GET /authors or /authors.json
   def index
@@ -66,5 +67,10 @@ class AuthorsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def author_params
       params.require(:author).permit(:name)
+    end
+
+    def books
+      @books_number= @author.books.count 
+      @authors_books = @author.books.order(:name).page(params[:page]).per(20)
     end
 end

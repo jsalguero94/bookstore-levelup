@@ -1,9 +1,26 @@
+Number of books published: <%= @books_number %>
 
 <%= render @author %>
-
 <div>
   <%= link_to "Edit this author", edit_author_path(@author) %> |
   <%= link_to "Back to authors", authors_path %>
 
   <%= button_to "Destroy this author", @author, method: :delete %>
+</div>
+<div>
+
+  <h2>Books</h2>
+<div id="books">
+  <% i ||=0 %>
+  <% @authors_books.each do |book| %>
+  #<%= i += 1 %>
+    <%= render book %>
+    <p>
+      <%= link_to "Show this book", book %>
+    </p>
+    <hr>
+  <% end %>
+
+</div>
+  <%= paginate @authors_books %>
 </div>
