@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   resources :requests
   resources :tags
   resources :categories
-  resources :books
+  resources :books do
+    resources :comments, only: [:create]
+  end
   resources :authors
 
-  resources :comments, only: [:create]
 
 
   root "books#index"

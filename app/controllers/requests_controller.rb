@@ -4,7 +4,7 @@ class RequestsController < ApplicationController
 
   # GET /requests or /requests.json
   def index
-    @requests = Request.by_user(current_user.id())
+    @requests = current_user.requests
   end
 
   # GET /requests/1 or /requests/1.json
@@ -13,7 +13,7 @@ class RequestsController < ApplicationController
 
   # GET /requests/new
   def new
-    @request = Request.new
+    @request = current_user.requests.build
   end
 
   # GET /requests/1/edit
@@ -22,11 +22,10 @@ class RequestsController < ApplicationController
 
   # POST /requests or /requests.json
   def create
-    @request = Request.new(request_params)
-    @request.user_id = current_user.id()
+    @request = current_user.requests.build(request_params)
     respond_to do |format|
       if @request.save
-        format.html { redirect_to request_url(@request), notice: "Request was successfully created." }
+        format.html { redirect_to request_path(@request), notice: "Request was successfully created." }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +38,7 @@ class RequestsController < ApplicationController
   def update
     respond_to do |format|
       if @request.update(request_params)
-        format.html { redirect_to request_url(@request), notice: "Request was successfully updated." }
+        format.html { redirect_to request_path(@request), notice: "Request was successfully updated." }
         format.json { render :show, status: :ok, location: @request }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +52,7 @@ class RequestsController < ApplicationController
     @request.destroy
 
     respond_to do |format|
-      format.html { redirect_to requests_url, notice: "Request was successfully destroyed." }
+      format.html { redirect_to requests_path, notice: "Request was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -61,7 +60,7 @@ class RequestsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_request
-      @request = Request.find(params[:id])
+      @request = current_user.requests.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
