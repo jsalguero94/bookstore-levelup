@@ -5,7 +5,6 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    #@books = Book.only_active.order(:name).page params[:page]
     @books = Book.filter(params.slice(:tag, :author)).order(:name).page params[:page]
   end
 
@@ -29,7 +28,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to book_url(@book), notice: "Book was successfully created." }
+        format.html { redirect_to book_path(@book), notice: "Book was successfully created." }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +41,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to book_url(@book), notice: "Book was successfully updated." }
+        format.html { redirect_to book_path(@book), notice: "Book was successfully updated." }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +55,7 @@ class BooksController < ApplicationController
     @book.destroy
 
     respond_to do |format|
-      format.html { redirect_to books_url, notice: "Book was successfully destroyed." }
+      format.html { redirect_to books_path, notice: "Book was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -69,7 +68,7 @@ class BooksController < ApplicationController
     end
 
     def get_comments
-      @comments = @book.comments.where("approved=true")
+      @comments = @book.comments.approved
     end
 
     # Only allow a list of trusted parameters through.

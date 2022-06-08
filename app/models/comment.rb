@@ -1,6 +1,8 @@
 class Comment < ApplicationRecord
   belongs_to :book
   belongs_to :user
-  
-  validates :message, presence: true 
+
+  scope :approved, -> { where approved: true }
+
+  validates :message, presence: true
 end

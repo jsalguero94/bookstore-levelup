@@ -4,7 +4,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors or /authors.json
   def index
-    @authors = Author.all.order(:name).page params[:page]
+    @authors = Author.order(:name).page params[:page]
   end
 
   # GET /authors/1 or /authors/1.json
@@ -26,7 +26,7 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       if @author.save
-        format.html { redirect_to author_url(@author), notice: "Author was successfully created." }
+        format.html { redirect_to author_path(@author), notice: "Author was successfully created." }
         format.json { render :show, status: :created, location: @author }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class AuthorsController < ApplicationController
   def update
     respond_to do |format|
       if @author.update(author_params)
-        format.html { redirect_to author_url(@author), notice: "Author was successfully updated." }
+        format.html { redirect_to author_path(@author), notice: "Author was successfully updated." }
         format.json { render :show, status: :ok, location: @author }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class AuthorsController < ApplicationController
     @author.destroy
 
     respond_to do |format|
-      format.html { redirect_to authors_url, notice: "Author was successfully destroyed." }
+      format.html { redirect_to authors_path, notice: "Author was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -70,7 +70,7 @@ class AuthorsController < ApplicationController
     end
 
     def books
-      @books_number= @author.books.count 
       @authors_books = @author.books.order(:name).page(params[:page]).per(20)
+      @books_count = @authors_books.total_count
     end
 end

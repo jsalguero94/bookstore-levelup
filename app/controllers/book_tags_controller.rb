@@ -25,7 +25,7 @@ class BookTagsController < ApplicationController
 
     respond_to do |format|
       if @book_tag.save
-        format.html { redirect_to book_tag_url(@book_tag), notice: "Book tag was successfully created." }
+        format.html { redirect_to book_tag_path(@book_tag), notice: "Book tag was successfully created." }
         format.json { render :show, status: :created, location: @book_tag }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class BookTagsController < ApplicationController
   def update
     respond_to do |format|
       if @book_tag.update(book_tag_params)
-        format.html { redirect_to book_tag_url(@book_tag), notice: "Book tag was successfully updated." }
+        format.html { redirect_to book_tag_path(@book_tag), notice: "Book tag was successfully updated." }
         format.json { render :show, status: :ok, location: @book_tag }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class BookTagsController < ApplicationController
     @book_tag.destroy
 
     respond_to do |format|
-      format.html { redirect_to book_tags_url, notice: "Book tag was successfully destroyed." }
+      format.html { redirect_to book_tags_path, notice: "Book tag was successfully destroyed." }
       format.json { head :no_content }
     end
   end
