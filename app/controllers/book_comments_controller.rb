@@ -1,6 +1,9 @@
 class BookCommentsController < ApplicationController
   before_action :authenticate_user!
 
+  def show_commented_books
+    @commented_books = current_user.commented_books.active.order(:name).page params[:page]
+  end
 
   # POST /comments or /comments.json
   def create
