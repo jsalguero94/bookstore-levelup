@@ -10,7 +10,7 @@ class BooksController < ApplicationController
 
   # GET /books/1 or /books/1.json
   def show
-    @comment = Comment.new
+    @comment = BookComment.new
   end
 
   # GET /books/new
@@ -68,7 +68,7 @@ class BooksController < ApplicationController
     end
 
     def get_comments
-      @comments = @book.comments.approved
+      @comments = @book.book_comments.approved
     end
 
     # Only allow a list of trusted parameters through.

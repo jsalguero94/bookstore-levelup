@@ -6,11 +6,8 @@ Rails.application.routes.draw do
   resources :tags
   resources :categories
   resources :books do
-    resources :comments, only: [:create]
+    resources :book_comments, only: [:create]
   end
   resources :authors
-
-
-
-  root "books#index"
+  root 'books#index'
 end
