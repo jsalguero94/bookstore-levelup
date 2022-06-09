@@ -1,12 +1,12 @@
-class CommentsController < ApplicationController
+class BookCommentsController < ApplicationController
   before_action :authenticate_user!
 
 
   # POST /comments or /comments.json
   def create
-    @comment = current_user.comments.build comment_params
+    @comment = current_user.book_comments.build comment_params
     @book = @comment.book
-    @comments = @book.comments.approved
+    @comments = @book.book_comments.approved
 
     respond_to do |format|
       if @comment.save
@@ -23,6 +23,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:message).merge(params.permit(:book_id))
+    params.require(:book_comment).permit(:message).merge(params.permit(:book_id))
   end
 end
