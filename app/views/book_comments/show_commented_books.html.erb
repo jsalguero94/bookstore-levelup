@@ -1,0 +1,25 @@
+<h2>Books that you have commented</h2>
+
+<p>
+<%= paginate @commented_books %>
+</p>
+<br>
+<br>
+<div id="commeted_books">
+  <% i ||=0 %>
+  <% @commented_books.each do |book| %>
+  #<%= i += 1 %>
+    <%= render "books/book", book: book %>
+    <p>
+      <%= link_to "Show this book", book %>
+    </p>
+    <hr>
+  <% end %>
+  <% if !@commented_books[0] %>
+    <p> Books not found, or not active</p>
+    <% end %>   
+<p>
+<%= paginate @commented_books %>
+</p>
+</div>
+
