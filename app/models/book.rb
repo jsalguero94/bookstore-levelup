@@ -19,10 +19,9 @@ class Book < ApplicationRecord
   scope :filter_by_tag, ->(tag_id) { joins(:book_tags).merge(BookTag.where(tag_id: tag_id)) }
 
   validates :code, :name, :price, :number_of_pages, :date_published, presence: true
-  validates :name, length: { maximum: 30 }
+  validates :name, length: { maximum: 30 }, format: { with: /[a-zA-Z0-9 ]+/ }
   validates :price, numericality: { greater_than: 0 }
   validates :active, inclusion: [true, false]
-  validates :name, format: { with: /\A[a-zA-Z0-9 ]+\z/ }
 
   validate  :date_published_is_date?
 
