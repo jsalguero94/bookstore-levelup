@@ -30,4 +30,47 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  authors:
+    create:
+      success: "Author was successfully created."
+    update:
+      success: "Author was successfully updated."
+    destroy:
+      success: "Author was successfully destroyed."
+  book_comments:
+    create:
+      success: "Comment was successfully created. But is pending of approval"
+  books:
+    create:
+      success: "Book was successfully created."
+    update:
+      success: "Book was successfully updated."
+    destroy:
+      success: "Book was successfully destroyed."
+  categories:
+    create:
+      success: "Category was successfully created."
+    update:
+      success: "Category was successfully updated."
+    destroy:
+      success: "Category was successfully destroyed."
+  requests:
+    create:
+      success: "Request was successfully created."
+    update:
+      success: "Request was successfully updated."
+    destroy:
+      success: "Request was successfully destroyed."
+  tags:
+    create:
+      success: "Tag was successfully created."
+    update:
+      success: "Tag was successfully updated."
+    destroy:
+      success: "Tag was successfully destroyed."
+  activerecord:
+    errors:
+      models:
+        request:
+          invalid: "only letters and numbers"
   hello: "Hello world"

@@ -1,27 +1,27 @@
+# frozen_string_literal: true
+
 class AuthorsController < ApplicationController
-  before_action :set_author, only: %i[ show edit update destroy ]
+  before_action :set_author, only: %i[show edit update destroy]
   before_action :books, only: :show
 
   def index
     @authors = Author.order(:name).page params[:page]
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @author = Author.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @author = Author.new(author_params)
 
     respond_to do |format|
       if @author.save
-        format.html { redirect_to author_path(@author), notice: "Author was successfully created." }
+        format.html { redirect_to author_path(@author), notice: t('.success') }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -31,7 +31,7 @@ class AuthorsController < ApplicationController
   def update
     respond_to do |format|
       if @author.update(author_params)
-        format.html { redirect_to author_path(@author), notice: "Author was successfully updated." }
+        format.html { redirect_to author_path(@author), notice: t('.success') }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -42,7 +42,7 @@ class AuthorsController < ApplicationController
     @author.destroy
 
     respond_to do |format|
-      format.html { redirect_to authors_path, notice: "Author was successfully destroyed." }
+      format.html { redirect_to authors_path, notice: t('.success') }
     end
   end
 

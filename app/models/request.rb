@@ -7,8 +7,7 @@ class Request < ApplicationRecord
             presence: true,
             format:
             {
-              with: /\A[a-zA-Z0-9 ]+\z/,
-              message: 'only letters and numbers'
+              with: /\A[a-zA-Z0-9 ]+\z/
             },
             length: { maximum: 30 }
 end
